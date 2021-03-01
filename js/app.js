@@ -32,6 +32,8 @@ const GLUE_IMG = '🕸️'
 
 function initGame(row, col) {
 	elWinMsg.style.display = 'none'
+	elBallCollectedCounter.style.display = 'none'
+	elBallLeftCounter.style.display = 'none'
 	elBtnGame.style.display = 'block'
 	gGamerPos = { i: 2, j: 9 };
 	rows = row
