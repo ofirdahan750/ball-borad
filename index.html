@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Balls</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onkeyup="handleKey(event)" onload="initGame(10,12)">
+  <h1>Collect those Balls</h1>
+  <div class="btn-game-warper">
+  <form class="game-btn" onsubmit="startGame(event)">
+    <select name="ball-spawn-speed" required>
+      <option value="" disabled selected>Ball spawn speed</option>
+      <option value="6500">easy</option>
+      <option value="4000">medium</option>
+      <option value="2000">hard</option>
+  </select>
+  <input type="number" name="ball-spawn-count" placeholder="choose Ball count 1-50" min="1" max="50" required />
+  <button>Start!</button>
+</form>
+</div>
+  <div class="ball-collected"></div>
+  <div class="ball-left"></div>
+  <table>
+    <tbody class="board"></tbody>
+  </table>
+  <div class="win-msg">You won! play again? <button onclick="initGame(10,12)">Rest game</button></div>
+  <script src="js/app.js"></script>
+  <script src="js/util.js"></script>
+</body>
+
+</html>

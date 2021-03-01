@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+div ,h1 ,h2 , button ,form , table{
+    display: flex;
+    justify-content: center;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    text-align: center
+}
+
+form {
+    flex-direction: column;
+}
+form > * {
+    margin: auto;
+}
+
+form > input {
+    width: 150px;
+}
+
+
+.cell img {
+    width: 25px;
+    height: auto
+}
+
+.floor {
+    background-color: gray
+}
+
+.wall {
+    background-color: brown
+}
+
+
+.win-msg {
+    display: none;
+}
