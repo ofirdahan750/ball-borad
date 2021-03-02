@@ -48,6 +48,8 @@ function initGame(row, col) {
 function startGame(ev) {
 	ev.preventDefault()
 	elBtnGame.style.display = 'none'
+	elBallCollectedCounter.style.display = 'flex'
+	elBallLeftCounter.style.display = 'flex'
 	isGameOn = true
 
 	spawnNewGlue(gBoard)
@@ -57,7 +59,7 @@ function startGame(ev) {
 	elBallLeftCounter.innerHTML = `Only ${ballCounter} left!`
 	elBallCollectedCounter.innerHTML = `You have Collected ${ballCollected} balls!`
 	
-	console.log('elBtnGame:', elBtnGame)
+
 }
 
 function newGameSpawnBall() {
@@ -148,19 +150,12 @@ function renderBoard(board) {
 	elBoard.innerHTML = strHTML;
 }
 
-// Move the player to a specific location
+
 function moveTo(i, j) {
-	console.log('isSticky:', isSticky)
 	var targetCell = gBoard[i][j];
-	console.log('targetCell:', targetCell)
 	if (targetCell.type === WALL) return;
-
-
-	// Calculate distance to make sure we are moving to a neighbor cell
 	var iAbsDiff = Math.abs(i - gGamerPos.i);
 	var jAbsDiff = Math.abs(j - gGamerPos.j);
-
-	// If the clicked Cell is one of the four allowed
 	if ((iAbsDiff === 1 && jAbsDiff === 0) || (jAbsDiff === 1 && iAbsDiff === 0)) {
 
 		if (targetCell.gameElement === BALL) {
@@ -177,18 +172,16 @@ function moveTo(i, j) {
 			setTimeout(function () { glueTimeOut(); }, 5000);
 		}
 
-		// MOVING from current position
-		// Model:
+
 		gBoard[gGamerPos.i][gGamerPos.j].gameElement = null;
-		// Dom:
+
 		renderCell(gGamerPos, '');
 
-		// MOVING to selected position
-		// Model:
+
 		gGamerPos.i = i;
 		gGamerPos.j = j;
 		gBoard[gGamerPos.i][gGamerPos.j].gameElement = GAMER;
-		// DOM:
+
 		renderCell(gGamerPos, GAMER_IMG);
 
 	}
